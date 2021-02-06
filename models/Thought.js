@@ -1,29 +1,44 @@
 const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('moment');
 
-// reactions (These are like replies)
-// Array of nested documents created with the reactionSchema
-// Schema Settings
-
+// This will not be a model, but rather will be used as the reaction field's subdocument schema in the Thought model.
 const ReactionSchema = new Schema(
     {
-        // set custom id to avoid confusion with parent comment's _id field
+        // reactionId
+        // Use Mongoose's ObjectId data type
+        // Default value is set to a new ObjectId
         replyId: {
             type: Schema.Types.ObjectId,
             default: () => new Types.ObjectId()
         },
-        replyBody: {
-            type: String
+
+        // reactionBody
+        // String
+        // Required
+        // 280 character maximum
+        reactionBody: {
+            type: String,
+            require: true,
+            maxLength: 280
         },
+        // username
+        // String
+        // Required
         writtenBy: {
-            type: String
+            type: String,
+            require: true,
         },
+        // createdAt
+        // Date
+        // Set default value to the current timestamp
         createdAt: {
             type: Date,
             default: Date.now,
             get: createdAtVal => dateFormat(createdAtVal)
         }
     },
+    // Use moment in a getter method to format the timestamp on query
+    // Schema Settings
     {
         toJSON: {
             getters: true
@@ -60,11 +75,11 @@ const ThoughtSchema = new Schema({
         type: string,
         require: true
     },
-
-
+    // reactions (These are like replies)
+    // Array of nested documents created with the reactionSchema
     reaction: [ReactionSchema]
-
 },
+    // Schema Settings
     {
         toJson: {
             virtuals: true,
