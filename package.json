@@ -1,6 +1,26 @@
 {
   "dependencies": {
+    "express": "^4.17.1",
     "moment": "^2.29.1",
-    "mongoose": "^5.11.15"
-  }
+    "mongoose": "^5.11.15",
+    "node": "^15.7.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "another-social",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natashamullin/another-social.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natashamullin/another-social/issues"
+  },
+  "homepage": "https://github.com/natashamullin/another-social#readme"
 }
