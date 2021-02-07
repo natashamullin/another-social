@@ -72,7 +72,7 @@ const ThoughtSchema = new Schema({
     // Required
 
     userNameId: {
-        type: string,
+        type: String,
         require: true
     },
     // reactions (These are like replies)
