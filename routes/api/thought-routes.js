@@ -5,7 +5,7 @@ const { getAllThought, getThoughtById, createThought, updateThought, deleteThoug
 //Set up GET all and POST at / api/Thoughts
 router.route('/')
     .get(getAllThought)
-    .post(createThought);
+    .post(createThought)
 
 //Set up GET one, and delete at /api/Thought/:id
 router.route('/:id')
