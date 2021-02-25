@@ -14,16 +14,12 @@ router.route('/:id')
     .delete(deleteThought);
 
 // /api/Reactions/<ThoughtId>
-router.route('/:ThoughtId').post(addReaction);
+// router.route('/:ThoughtId')
+//     .post(addReaction);
 
-// /api/Reactions/<ThoughtId/<ReactionId>
-router
-    .route('/:ThoughtId/ReactionId')
+// /api/Reactions/<ThoughtId>/<ReactionId>
+router.route('/:ThoughtId/ReactionId')
     .put(addReaction)
     .delete(removeReaction);
-
-router.route('/:ThoughtId/:ReactionId')
-    .delete(removeReaction);
-
 
 module.exports = router;

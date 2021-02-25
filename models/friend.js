@@ -43,7 +43,7 @@ const FriendSchema = new Schema({
     ]
 },
     {
-        toJson: {
+        toJSON: {
             virtuals: true,
             getters: true
         },
@@ -57,7 +57,7 @@ const FriendSchema = new Schema({
 //get total count of friends and replies on retrieval
 
 FriendSchema.virtual('friendCount').get(function () {
-    return this.friends.reduce((total, Friend) => total + friends.replies.length + 1, 0);
+    return this.friends.length;
 });
 
 // create the pizza model using the PizzaSchema
